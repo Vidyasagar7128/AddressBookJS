@@ -86,3 +86,12 @@ function SaveData() {
         document.getElementById('result').innerHTML = "Failed";
     }
 }
+///Show Contacts
+function ShowData() {
+    debugger;
+    let innerData = "<p>Contacts:</p>"
+    book.forEach(e => {
+        innerData += `<p>${e.fname} ${e.lname} ${e.address} ${e.city} ${e.state} ${e.zip} ${e.mobile} ${e.email}</p>`
+        document.getElementById('show').innerHTML = innerData
+    })
+}
