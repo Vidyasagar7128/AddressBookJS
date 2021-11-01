@@ -1,0 +1,11 @@
+body{
+    padding: 0 auto;
+    font-family: system-ui;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: row;
+    justify-content: space-around;
+}
