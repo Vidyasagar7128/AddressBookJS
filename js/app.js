@@ -78,6 +78,7 @@ function SaveData() {
         if (index == -1) {
             book.push(contact);
             document.getElementById('result').innerHTML = "Saved";
+            document.getElementById('count').innerHTML = book.length;
             setTimeout(() => {
                 document.getElementById('result').innerHTML = "Save";
             }, 2000);
@@ -108,7 +109,9 @@ function ShowData() {
 function FindData() {
     debugger;
     let name = document.getElementById('fname').value;
-    let findIndex = book.findIndex((obj => obj.fname == name));
+    let city = document.getElementById('city').value;
+    let state = document.getElementById('state').value;
+    let findIndex = book.findIndex((obj => obj.fname == name || obj.city == city || obj.state == state));
     if (findIndex > -1) {
         document.getElementById('fname').value = book[findIndex].fname;
         document.getElementById('lname').value = book[findIndex].lname;
