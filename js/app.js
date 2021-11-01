@@ -95,3 +95,42 @@ function ShowData() {
         document.getElementById('show').innerHTML = innerData
     })
 }
+/// Find Contact
+function FindData() {
+    debugger;
+    let name = document.getElementById('fname').value;
+    let findIndex = book.findIndex((obj => obj.fname == name));
+    if (findIndex > -1) {
+        document.getElementById('fname').value = book[findIndex].fname;
+        document.getElementById('lname').value = book[findIndex].lname;
+        document.getElementById('address').value = book[findIndex].address;
+        document.getElementById('city').value = book[findIndex].city;
+        document.getElementById('state').value = book[findIndex].state;
+        document.getElementById('zip').value = book[findIndex].zip;
+        document.getElementById('mobile').value = book[findIndex].mobile;
+        document.getElementById('email').value = book[findIndex].email;
+        document.getElementById("edit").disabled = false;
+    } else {
+        document.getElementById('find').innerHTML = "Not Found";
+    }
+}
+//Edit Data
+function Editdata() {
+    let name = document.getElementById('fname').value;
+    let findIndex = book.findIndex((obj => obj.fname == name));
+    if (findIndex > -1) {
+        let contact = new Contact()
+        contact.fname = document.getElementById('fname').value;
+        contact.lname = document.getElementById('lname').value;
+        contact.address = document.getElementById('address').value;
+        contact.city = document.getElementById('city').value;
+        contact.state = document.getElementById('state').value;
+        contact.zip = document.getElementById('zip').value;
+        contact.mobile = document.getElementById('mobile').value;
+        contact.email = document.getElementById('email').value;
+        book[findIndex] = contact;
+        document.getElementById("edit").innerHTML = "Updated";
+    } else {
+        document.getElementById('find').innerHTML = "Failed to Update";
+    }
+}
