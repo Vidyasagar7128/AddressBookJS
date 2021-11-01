@@ -78,12 +78,21 @@ function SaveData() {
         if (index == -1) {
             book.push(contact);
             document.getElementById('result').innerHTML = "Saved";
+            setTimeout(() => {
+                document.getElementById('result').innerHTML = "Save";
+            }, 2000);
         }
         else {
             document.getElementById('result').innerHTML = "Already Exist!";
+            setTimeout(() => {
+                document.getElementById('result').innerHTML = "Save";
+            }, 2000);
         }
     } else {
         document.getElementById('result').innerHTML = "Failed";
+        setTimeout(() => {
+            document.getElementById('result').innerHTML = "Save";
+        }, 2000);
     }
 }
 ///Show Contacts
@@ -130,7 +139,23 @@ function Editdata() {
         contact.email = document.getElementById('email').value;
         book[findIndex] = contact;
         document.getElementById("edit").innerHTML = "Updated";
+        setTimeout(() => {
+            document.getElementById('edit').innerHTML = "Edit";
+        }, 2000);
     } else {
         document.getElementById('find').innerHTML = "Failed to Update";
+        setTimeout(() => {
+            document.getElementById('result').innerHTML = "Edit";
+        }, 2000);
     }
+}
+//Delete Contact
+function DeleteData() {
+    let name = document.getElementById('fname').value;
+    let findIndex = book.findIndex(i => i.fname == name)
+    book.splice(findIndex, 1);
+    document.getElementById('delete').innerHTML = "Deleted!";
+    setTimeout(() => {
+        document.getElementById('delete').innerHTML = "Delete";
+    }, 2000);
 }
